@@ -1,0 +1,2 @@
+# SqlTypeAhead
+Pet project
