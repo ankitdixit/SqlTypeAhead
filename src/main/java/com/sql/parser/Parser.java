@@ -1,9 +1,8 @@
 package com.sql.parser;
 
-public class Parser
+import java.util.List;
+
+public interface Parser
 {
-    public static void main(String[] args)
-    {
-        System.out.println("Hello");
-    }
+    public List<Feature> parseQuery(Query query);
 }
