@@ -5,5 +5,7 @@ public enum FeatureType
     FROM,
     WHERE,
     GROUP_BY,
-    ORDER_BY
+    ORDER_BY,
+    SUB_QUERY,
+    JOIN
 }
