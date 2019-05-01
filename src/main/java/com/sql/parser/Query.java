@@ -2,29 +2,52 @@ package com.sql.parser;
 
 import com.sun.istack.internal.NotNull;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import java.sql.Timestamp;
+
+@Entity
+@Table(name = "QUERY1")
 public class Query
 {
-    final String queryText;
-    final String queryId;
-    final String user;
-    final String timeStamp;
-    final String database;
+    @Id @GeneratedValue
+    @Column(name = "id")
+    Integer queryId;
 
-    public Query(@NotNull String queryText, @NotNull String queryId, String user, String timeStamp, String database)
+    @Column(name = "text")
+    String queryText;
+
+    @Column(name = "user")
+    String user;
+
+    @Column(name = "timestamp")
+    Timestamp timeStamp;
+
+    @Column(name = "db")
+    String database;
+
+    public Query(@NotNull String queryText, String user, Timestamp timeStamp, String database)
     {
-        this.queryText = queryText;
-        this.queryId = queryId;
-        this.user = user;
+        /*this.queryText = queryText;
+        this.user = user;*/
         this.timeStamp = timeStamp;
         this.database = database;
     }
+
+    public Query() {}
+
 
     public String getQueryText()
     {
         return queryText;
     }
 
-    public String getQueryId()
+
+    public int getQueryId()
     {
         return queryId;
     }
@@ -34,7 +57,7 @@ public class Query
         return user;
     }
 
-    public String getTimeStamp()
+    public Timestamp getTimeStamp()
     {
         return timeStamp;
     }
@@ -44,7 +67,32 @@ public class Query
         return database;
     }
 
-    @Override
+    public void setQueryId(int queryId)
+    {
+        this.queryId = queryId;
+    }
+
+    public void setQueryText(String queryText)
+    {
+        this.queryText = queryText;
+    }
+
+    public void setUser(String user)
+    {
+        this.user = user;
+    }
+
+    public void setTimeStamp(Timestamp timeStamp)
+    {
+        this.timeStamp = timeStamp;
+    }
+
+    public void setDatabase(String database)
+    {
+        this.database = database;
+    }
+
+/*    @Override
     public boolean equals(Object o)
     {
         if (this == o) { return true; }
@@ -62,5 +110,7 @@ public class Query
         int result = getQueryText().hashCode();
         result = 31 * result + (getDatabase() != null ? getDatabase().hashCode() : 0);
         return result;
-    }
+    }*/
+
+
 }
